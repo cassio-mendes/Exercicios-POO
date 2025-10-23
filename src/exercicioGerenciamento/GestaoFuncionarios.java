@@ -18,10 +18,11 @@ public class GestaoFuncionarios {
         if(this.listaFuncionarios.isEmpty()) {
             throw new Exception("ERRO: A lista está vazia");
         } else {
+            System.out.println("Lista de funcionários:");
             for(Funcionario f : this.listaFuncionarios) {
-                System.out.printf("Funcionario{nome=%s, funcao=%s, idade=%s, salario=%s}\n", f.getNome(), f.getFuncao(),
-                        f.getIdade(), f.getSalario());
+                System.out.println(f);
             }
+            System.out.println();
         }
     }
 
@@ -39,11 +40,17 @@ public class GestaoFuncionarios {
         }
     }
 
-    public boolean removerFuncionario(Funcionario f) throws Exception {
+    public Funcionario removerFuncionario(String nome) throws Exception {
         if(this.listaFuncionarios.isEmpty()) {
             throw new Exception("ERRO: A lista está vazia");
         } else {
-            return this.listaFuncionarios.remove(f);
+            for(int i = 0; i < this.listaFuncionarios.size(); i++) {
+                if(this.listaFuncionarios.get(i).getNome().equals(nome)) {
+                    return this.listaFuncionarios.remove(i);
+                }
+            }
+
+            return null;
         }
     }
 
