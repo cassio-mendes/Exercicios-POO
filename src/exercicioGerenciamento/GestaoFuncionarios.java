@@ -54,6 +54,7 @@ public class GestaoFuncionarios {
             for(Funcionario f : this.listaFuncionarios) {
                 if(f.getNome().equals(nome)) {
                     f.setSalario(novoSalario);
+                    break;
                 }
             }
         }
@@ -71,7 +72,7 @@ public class GestaoFuncionarios {
                 }
             }
 
-            return listaFiltrada.isEmpty() ? null : listaFiltrada;
+            return listaFiltrada;
         }
     }
 
